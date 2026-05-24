@@ -1,4 +1,7 @@
 package com.example.dpocaspulgasvet.repository;
 
-public interface InternamientoRepository {
-}
+import com.example.dpocaspulgasvet.entity.Internamiento;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface InternamientoRepository extends JpaRepository<Internamiento, Integer> {}
+
