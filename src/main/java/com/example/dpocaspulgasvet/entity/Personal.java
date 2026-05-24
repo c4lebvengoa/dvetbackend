@@ -1,7 +1,8 @@
 package com.example.dpocaspulgasvet.entity;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 @Data
 @Table(name = "Personal")
 public class Personal {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_personal")
@@ -39,6 +41,7 @@ public class Personal {
     private String direccion;
 
     @Column(name = "fecha_ingreso", nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd")   // ← FIX: deserializa el string del input date
     private LocalDate fechaIngreso;
 
     @Column(nullable = false, precision = 7, scale = 2)
@@ -64,6 +67,4 @@ public class Personal {
 
     @Column(name = "id_distrito")
     private Integer idDistrito;
-
-
 }
